@@ -1,0 +1,209 @@
+{
+  "info": {
+    "name": "InvoiceEscrow API",
+    "description": "API collection for InvoiceEscrow smart contract",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Get Total Invoices",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/invoices",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "invoices"]
+        }
+      }
+    },
+    {
+      "name": "Create Invoice",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"freelancer\": \"0x5Bb0e240531Ad8c5F53701adc7D71d2277599E58\",\n  \"amount\": \"0.1\",\n  \"description\": \"Web development work\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/invoices",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "invoices"]
+        }
+      }
+    },
+    {
+      "name": "Get Invoice",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/invoices/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "invoices", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Invoice Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/invoices/:id/status",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "invoices", ":id", "status"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Fund Invoice",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/invoices/:id/fund",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "invoices", ":id", "fund"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Mark Invoice Completed",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/invoices/:id/complete",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "invoices", ":id", "complete"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Release Payment",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/invoices/:id/release",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "invoices", ":id", "release"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Cancel Invoice",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/invoices/:id/cancel",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "invoices", ":id", "cancel"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Resolve Dispute",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"releaseToFreelancer\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/invoices/:id/resolve-dispute",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "invoices", ":id", "resolve-dispute"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "0"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
